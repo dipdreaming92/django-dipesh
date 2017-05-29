@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+<!-- contact pages -->
+<!-- yesko css style.css ma xa -->
+{% block content %}
+<h2>Contact Us</h2>
+<h4>Todo App</h4>
+<h4 class="text-warning-yellow">10W, Old Baneshwor<br>
+Vail, CO 81657</h4>
+<h4>Tel:<span class="text-warning-yellow">(+977)478-2478</span> </h4>
+<h4>Fax:977-478-2479</h4>
+<h4>E-mail:<span class="text-warning-yellow">info@todoapps.vail.com</span></h4>
+	<hr>
+<form class = "form-group">
+	<div class ="form-inline">
+		<input type="text"  class = "form-control"  placeholder = " your username" required>
+		<input type="text" class = "form-control" placeholder = "your email address" required>
+	</div><br>
+<div class = "form-inline">
+	<textarea class="form-control" cols = "44"   rows="5	" placeholder="Message" required></textarea>
+</div><br>
+<input class = "btn btn-success" type="submit" value="send">
+<input class = "btn btn-danger" type="submit" value="cancel">
+</form>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+<!-- yo todoapp button click gare paxi ko ho  -->
+{% block content %}
+	<button>
+    <h3>
+      {% if form_type == 'create' %}
+        Add Todo
+      {% elif form_type == 'edit' %}
+        Edit Todo
+      {% else %}
+      {% endif %}
+    </h3>
+  </button>
+  <br>
+  {% include 'messages.html' %}
+  <hr>
+
+
+<a href=""></a>
+<h4>
+<form class ="form-horizontal create-form" method="POST" action="{% url 'save' %}">
+  <input type="hidden" name="id" value="{{todo.id}}" />
+  <input type="hidden" name="form_type" value="{{form_type}}" />
+  {% csrf_token %}
+  <div class = "form-group"></div>
+  <label for="title" >Title</label>
+  <input 
+  required
+  id="input-todo-title"
+  class = "form-control" type="text"  
+  name="title"  
+  placeholder="title of your todos"
+  value={% if todo.title is not none %}{{todo.title}}{% endif %}>
+
+  <br>
+  <label for="Description">Description</label>
+  <textarea 
+  class="form-control" 
+  rows="3"  
+  name="description" 
+  value={% if todo.description is not none %}{{todo.description}}{% endif %} 
+  placeholder="I will be doing this and that"></textarea>
+<br>
+  completed:<br> 
+  <input 
+  type="radio" 
+  name = 'completed' 
+  value ='True'{% if completed == 'True' %} 
+  {% endif %}
+  checked>
+  True<br>
+  <input 
+  type="radio" 
+  name ='completed'
+  value ='False' {% if completed == 'False'%}
+  {% endif %}>
+  False 
+
+
+
+<p><b>Day</b></p>
+
+
+  <select id="day" name="day">
+    
+    <option value="Sunday">Sunday</option>
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+  </div>
+    
+  </select>
+<br>
+
+
+<button class = "btn btn-success" type="submit" >save</button>
+<button class = "btn btn-danger" type="cancel" name= "cancel">Cancel</button>
+<br>
+</h4>
+</form>
+{% endblock %}
